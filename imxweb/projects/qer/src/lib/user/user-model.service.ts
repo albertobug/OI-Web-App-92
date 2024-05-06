@@ -38,6 +38,7 @@ export class UserModelService {
   private pendingItems: CachedPromise<PendingItemsType>;
   private userConfig: CachedPromise<UserConfig>;
 
+
   public onPendingItemsChange = new Subject<PendingItemsType>();
 
   constructor(private qerClient: QerApiService, private readonly cache: CacheService) {
@@ -49,6 +50,11 @@ export class UserModelService {
     }
 
     return this.userConfig.get();
+  }
+
+  public async reloadUserConfig(): Promise<void> {
+    this.userConfig = undefined;
+    await this.getUserConfig();
   }
 
   public getPendingItems(): Promise<PendingItemsType> {

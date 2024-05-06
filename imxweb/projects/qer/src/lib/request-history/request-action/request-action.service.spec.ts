@@ -170,7 +170,8 @@ describe('RequestActionService', () => {
         {
           provide: UserModelService,
           useValue: {
-            reloadPendingItems: jasmine.createSpy('ReloadPendingItems')
+            reloadPendingItems: jasmine.createSpy('ReloadPendingItems'),
+            reloadUserConfig: jasmine.createSpy('reloadUserConfig')
           }
         },
         {

@@ -328,7 +328,8 @@ export class RequestActionService {
       } catch (error) {
         this.errorHandler.handleError(error);
       } finally {     
-        await this.userService.reloadPendingItems();
+        await this.userService.reloadPendingItems();        
+        await this.userService.reloadUserConfig();
         setTimeout(() => this.busyService.hide(busyIndicator));
       }
 
@@ -336,7 +337,6 @@ export class RequestActionService {
         this.snackBar.open({
           key: config.message, parameters: [config.data.requests.length]
         });
-        await this.userService.reloadPendingItems();
         this.applied.next();
       }
     } else {

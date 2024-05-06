@@ -1,6 +1,6 @@
 {
   "name": "imxweb",
-  "version": "9.1.2",
+  "version": "9.1.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --configuration development",
