@@ -4,6 +4,17 @@
 
 ## Change log
 
+### May 7, 2024
+
+The package versions have been updated to 9.1.3.
+
+The `v91` branch has been updated with fixes for the following issues.
+
+- 418493:Fixed an issue in the overview of request approvers
+- 449890: Fixed the inherited group membership pagination
+- 449915: Fixed an inconsistency with the pending item display after approving a request
+- 452771: Fixed an issue in the overview of attestation case approvers
+
 ### March 11, 2024
 - 440206: When a request is added to the cart, request properties were sometimes not correctly applied to the shopping cart item.
 - 446476: The number of pending requests and shopping cart items were not being updated correctly.
