@@ -1,6 +1,6 @@
 <div eui-sidesheet-content>
 <mat-card class="imx-content-card">
-  <imx-sqlwizard *ngIf="!sqlExpression?.IsUnsupported" [tableName]="'UNSGroup'"  (change)="checkChanges($event)" [apiService]="svc" [expression]="sqlExpression?.Expression" [allowEmptyExpression]="true">
+  <imx-sqlwizard *ngIf="!sqlExpression?.IsUnsupported" [tableName]="'UNSGroup'"  (change)="checkChanges()" [apiService]="svc" [expression]="sqlExpression?.Expression" [allowEmptyExpression]="true">
   </imx-sqlwizard>
 </mat-card>
 </div>

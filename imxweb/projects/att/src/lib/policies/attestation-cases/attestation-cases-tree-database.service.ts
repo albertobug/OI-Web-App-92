@@ -59,8 +59,8 @@ export class AttestationCasesTreeDatabaseService extends TreeDatabase {
       const navigationState = {
         ...parameter,
         ...{
-          PageSize: this.settingsService.DefaultPageSize,
-          StartIndex: parameter.StartIndex ? parameter.StartIndex : 0,
+          PageSize: parameter.PageSize ?? this.settingsService.DefaultPageSize,
+          StartIndex: parameter.StartIndex ?? 0,
         },
       };
 

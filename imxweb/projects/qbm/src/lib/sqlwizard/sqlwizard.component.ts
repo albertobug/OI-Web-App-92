@@ -24,19 +24,7 @@
  *
  */
 
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-  QueryList,
-  SimpleChanges,
-  ViewChildren,
-} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, QueryList, SimpleChanges, ViewChildren } from '@angular/core';
 import { SqlViewSettings } from './SqlNodeView';
 import { LogOp as _logOp, SqlExpression } from 'imx-qbm-dbts';
 import { SqlWizardApiService } from './sqlwizard-api.service';
@@ -67,7 +55,7 @@ export class SqlWizardComponent implements OnInit, OnChanges, AfterViewInit {
   /** Alternate API service to use. */
   @Input() public apiService: SqlWizardApiService;
 
-  @Output() public change = new EventEmitter<SqlExpression>();
+  @Output() public change = new EventEmitter<any>();
 
   @ViewChildren('expressionItem') public expressionList: QueryList<ElementRef<HTMLLIElement>>;
 
@@ -81,14 +69,14 @@ export class SqlWizardComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    setTimeout(() => {
+    setTimeout( () => {
       this.expressionList.changes.subscribe(() => {
         if (this.newExpressionAdded) {
           this.expressionList?.last?.nativeElement.scrollIntoView(true);
         }
 
         this.newExpressionAdded = false;
-      });
+      })
     });
   }
 
@@ -115,15 +103,13 @@ export class SqlWizardComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   public async emitChanges(): Promise<void> {
+    this.change.emit();
     await this.addEmptyExpression();
-    this.change.emit(this.viewSettings.root.Data);
   }
 
   public onOperatorChanged(event: MatButtonToggleChange): void {
-    (event.value as string).toLowerCase() === 'and'
-      ? (this.expression.LogOperator = this.LogOp.AND)
-      : (this.expression.LogOperator = this.LogOp.OR);
-    this.change.emit(this.viewSettings.root.Data);
+    (event.value as string).toLowerCase() === 'and' ? (this.expression.LogOperator = this.LogOp.AND) : (this.expression.LogOperator = this.LogOp.OR);
+    this.change.emit();
   }
 
   public logOpText(): string {

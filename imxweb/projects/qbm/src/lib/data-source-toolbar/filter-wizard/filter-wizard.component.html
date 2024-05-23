@@ -36,7 +36,7 @@
 
 <ng-template #customContent>
   <mat-card class="imx-content-container mat-elevation-z4">
-    <imx-sqlwizard [tableName]="data?.settings?.entitySchema?.TypeName" [expression]="sqlExpression?.Expression" (change)="checkChanges($event)" data-imx-identifier="sqlwizard">
+    <imx-sqlwizard [tableName]="data?.settings?.entitySchema?.TypeName" [expression]="sqlExpression?.Expression" (change)="checkChanges()" data-imx-identifier="sqlwizard">
     </imx-sqlwizard>
   </mat-card>
 </ng-template>

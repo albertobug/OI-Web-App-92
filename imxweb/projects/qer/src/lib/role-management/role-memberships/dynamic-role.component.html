@@ -27,7 +27,7 @@
 
     <div class="imx-main-content">
       <mat-card>
-        <imx-sqlwizard [canEdit]="canEdit" *ngIf="!sqlExpression.IsUnsupported" tableName="Person" [expression]="sqlExpression.Expression" (change)="checkChanges($event)">
+        <imx-sqlwizard [canEdit]="canEdit" *ngIf="!sqlExpression.IsUnsupported" tableName="Person" [expression]="sqlExpression.Expression" (change)="checkChanges()">
         </imx-sqlwizard>
 
         <ng-container *ngIf="cdrList.length > 0">

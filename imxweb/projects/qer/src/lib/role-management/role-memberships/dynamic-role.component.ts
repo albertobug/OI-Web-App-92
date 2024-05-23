@@ -108,7 +108,7 @@ export class DynamicRoleComponent implements OnInit {
         e.extendedData = { NewDynamicRole: this.sqlExpression.Expression };
         await e.GetEntity().Commit(true);
         this.uidDynamicGroup = e.GetEntity().GetColumn('UID_DynamicGroup').GetValue();
-        await this.loadDynamicRole();
+        await this.loadDynamicRole(false);
       }
     } finally {
       await this.dataManagementService.setInteractive();
@@ -160,10 +160,9 @@ export class DynamicRoleComponent implements OnInit {
     }
   }
 
-  public checkChanges(expression: SqlExpression): void {
-    this.exprHasntChanged = _.isEqual(expression, this.lastSavedExpression);
+  public checkChanges(): void {
+    this.exprHasntChanged = _.isEqual(this.sqlExpression?.Expression, this.lastSavedExpression);
     if (!this.exprHasntChanged) {
-      this.sqlExpression.Expression = expression;
       this.dataManagementService.autoMembershipDirty(true);
     } else if (this.cdrsHaventChanged && this.exprHasntChanged) {
       this.dataManagementService.autoMembershipDirty(false);
@@ -191,23 +190,24 @@ export class DynamicRoleComponent implements OnInit {
     );
   }
 
-  private async loadDynamicRole(): Promise<void> {
+  private async loadDynamicRole(initialLoading = true): Promise<void> {
     try {
       this.busy = true;
       if (this.uidDynamicGroup) {
         const data = await this.apiService.typedClient.PortalDynamicgroupInteractive.Get(this.uidDynamicGroup);
-
         this.dynamicGroup = data.Data[0];
-        this.sqlExpression = data.extendedData.Expressions[0];
-        // Set "" to undefined so the cdr and data dirty states make sense
-        this.sqlExpression?.Expression?.Expressions?.map((exp) => {
-          if (exp.Value === '') {
-            exp.Value = undefined;
+        if (initialLoading) {
+          this.sqlExpression = data.extendedData.Expressions[0];
+          // Set "" to undefined so the cdr and data dirty states make sense
+          this.sqlExpression?.Expression?.Expressions?.map((exp) => {
+            if (exp.Value === '') {
+              exp.Value = undefined;
+            }
+          });
+          // Sometimes the logOp is not set. Initalize it here
+          if (!this.sqlExpression.IsUnsupported && !this.sqlExpression?.Expression?.LogOperator) {
+            this.sqlExpression.Expression.LogOperator = LogOp.AND;
           }
-        });
-        // Sometimes the logOp is not set. Initalize it here
-        if (!this.sqlExpression.IsUnsupported && !this.sqlExpression?.Expression?.LogOperator) {
-          this.sqlExpression.Expression.LogOperator = LogOp.AND;
         }
 
         this.cdrList = this.canEdit
