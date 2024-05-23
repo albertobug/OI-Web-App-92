@@ -4,6 +4,15 @@
 
 ## Change log
 
+### May 24, 2024
+The v92 branch has been updated with fixes for the following issues.
+
+- 453132: Attestation Policies: Edit Attestation Policy: Setting Condition: The objects matching the condition are not displayed hierarchically
+- 449292: HTML5-WebPortal: in the request process not every time the expected side sheet for Request Details will open and an error will be displayed instead
+- 455291: Wrong compodoc output paths
+- 453350: Portal: Unable to save the changes to a dynamic role membership after adding another condition to a new role
+- 455703: Reports, Create report: Filling mandatory fields does not enable Create button
+
 ### May 6, 2024
 
 We are integrating [Compodoc](https://compodoc.app/) to provide Angular documentation for our components. Please see the [Documentation](#documentation) section for more information on how to generate documentation.
