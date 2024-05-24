@@ -5,13 +5,14 @@
 ## Change log
 
 ### May 24, 2024
+
 The v92 branch has been updated with fixes for the following issues.
 
 - 453132: Attestation Policies: Edit Attestation Policy: Setting Condition: The objects matching the condition are not displayed hierarchically
-- 449292: HTML5-WebPortal: in the request process not every time the expected side sheet for Request Details will open and an error will be displayed instead
-- 455291: Wrong compodoc output paths
-- 453350: Portal: Unable to save the changes to a dynamic role membership after adding another condition to a new role
-- 455703: Reports, Create report: Filling mandatory fields does not enable Create button
+- 449292: Fixed an issue during creation of a cart item
+- 455291: Fixed the output paths for the compodoc files
+- 453350: Fixed an issue where the user could not save dynamic role membership changes after adding another condition to a new role
+- 455703: Fixed a state issue of the save button during creation of a report
 
 ### May 6, 2024
 
