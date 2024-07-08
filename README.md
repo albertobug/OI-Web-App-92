@@ -6,28 +6,32 @@
 
 ### July 3, 2024
 
-- 456920: Error during approval of ITShop request, if the request contains a parameter with a ValuationScript
-- 457344: Members of Chief Approval Team can´t open an Attestation Case by using a direct URL
-- 434023: Special filtering, like User Accounts Target system based narrowing, when loaded by a saved view, causes UI issues
-- 458023: Additional approver is not displayed correctly in history view
-- 455928: VI_Hardware_Enabled: If set to false, the menu item Device Ownership is still available
-- 456918: compodoc sample for MenuFactory
-- 458137: Attestation case is saved once before it is approved, which is often unnecessary
+We have added a [list of changes from v91 to v92](./doc/changes-v91-v92.md).
+
+The v92 branch has been updated with fixes for the following issues.
+
+- 456920: Error during approval of ITShop equest, if the request contains a parameter with a ValuationScript
+- 457344: Members of the chief approval team can't open an attestation case by using a direct URL
+- 434023: Fixed loading a saved view using target system filtering
+- 458023: Fixed the display of additional approvers in history view
+- 455928: Fixed an issue where the Device Ownership menu item was still visible even when the  VI_Hardware_Enabled configuration setting was disabled
+- 456918: Added Compodoc sample for MenuFactory
+- 458137: The attestation case was saved once before it is approved, which is often unnecessary
 - 455931: System entitlements: Restoring view with multiple target systems fails
-- 459617: Angular portal: CDR editors are currently ignoring new-line strings
-- 458984: Html5-Web (release in GitHub): formatting script (configured in Designer for Person.ContactEmail Column) will not be correctly processed in WebPortal
-- 455119: Configuration switch DisableHyperViewNavigation (scoped to Web Portal) also affects hyperview navigation in Operations Support Web Portal.
-- 455118: Operations Support Web Portal accesses Web Portal endpoint when showing hyperviews
-- 458570: Web Portal: New Request: Currently selected service category, option, and search hints are not displayed
-- 458294: Hyperview navigation raises error - Number of primary key columns does not match
-- 454798: Request with Reference User: List of service items is not updated
-- 456379: Show display value of the service category FullPath, Description etc.
-- 458001: Login page background color cannot be set through a theme
-- 456786: Web Portal: Accessibility: Cannot select all entries in a drop-down list using arrow keys
-- 456472: Cannot navigate to the HyperView for accountability
-- 458688: Administration Portal: Plugins cannot be managed
-- 453124: Github issue 134: Translated text not used for the "show selected" button on new requests page
-- 455930: Disabling "Hardware" ConfigParm (Preprocessor "MAC") does not lead to removal of menu entries for hardware management
+- 459617: Fixed an issue with line-break characters in CDR editor view components
+- 458984: Fixed an issue with formatting script processing
+- 455119: The configuration setting `DisableHyperViewNavigation`, scoped to Portal, also affected hyperview navigation in Operations Support Web Portal.
+- 455118: Fixed an issue where Operations Support Web Portal accessed a Web Portal endpoint
+- 458570: Fixed an issue with showing the currently selected service category and other options
+- 458294: Fixed an issue with Hyperview navigation ("Number of primary key columns does not match")
+- 454798: Fixed an issue where the list of service items was not updated when requesting by reference user
+- 456379: Fixed an issue where a service category's properties were not translated
+- 458001: Fixed an issue with theme's color settings not being applied to the login page
+- 456786: Fixed an accessibility issue with the entries in a drop-down list
+- 456472: Fixed a navigation issue in accountability HyperViews
+- 458688: Fixed the plugin view in Administration Portal
+- 453124: Fixed the "show selected" button caption on new requests page (issue 134)
+- 455930: Fixed an issue with device management menu items still showing when the "Hardware" configuration parameter was disabled
 
 ### May 24, 2024
 
