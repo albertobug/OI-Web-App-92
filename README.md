@@ -8,12 +8,12 @@
 
 The v92 branch has been updated with fixes for the following issues.
 
-- 459707: Fixed the search for service categories in New Request\Service Categories, that only returns results up to the first child service category.
-- 461733: Fixed security issues.
-- 460431: Fixed the export of requests for chief approval team.
-- 458431: Fixed the inconsistent handling of columns, that are added/removed from ServerConfig/ITShopConfig/AccProductProperties.
+- 459707: Fixed an issue on the New Request page, where only results up to the first child service category were returned.
+- 461733: Updated third-party package versions for security reasons.
+- 460431: Fixed the export of requests for the chief approval team.
+- 458431: Fixed the inconsistent handling of columns that were added/removed from the ServerConfig/ITShopConfig/AccProductProperties configuration.
 - 460184: Fixed an issue with starting attestation policies.
-- 453124: Fixed the translated text, that was not used for the "show selected" button on new requests page.
+- 453124: Fixed a translation issue on the "show selected" view on the New Request page.
 
 ### July 3, 2024
 
