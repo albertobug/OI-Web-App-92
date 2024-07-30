@@ -4,6 +4,17 @@
 
 ## Change log
 
+### July 30, 2024
+
+The v92 branch has been updated with fixes for the following issues.
+
+- 459707: Fixed the search for service categories in New Request\Service Categories, that only returns results up to the first child service category.
+- 461733: Fixed security issues.
+- 460431: Fixed the export of requests for chief approval team.
+- 458431: Fixed the inconsistent handling of columns, that are added/removed from ServerConfig/ITShopConfig/AccProductProperties.
+- 460184: Fixed an issue with starting attestation policies.
+- 453124: Fixed the translated text, that was not used for the "show selected" button on new requests page.
+
 ### July 3, 2024
 
 We have added a [list of changes from v91 to v92](imxweb/changes/changesFrom9.1.1To9.2.0.md).
