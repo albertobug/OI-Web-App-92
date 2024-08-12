@@ -13,7 +13,6 @@
 - 461414: Fixed the scrollability of the Operation Support Portal's Process view 
 - 462785: Fixed an UI issue regarding the alignment for the column "User account is disabled" and its data.
 
-User Accounts: Title of column "User account is disabled" is aligned differently as its data.
 
 ### July 30, 2024
 
