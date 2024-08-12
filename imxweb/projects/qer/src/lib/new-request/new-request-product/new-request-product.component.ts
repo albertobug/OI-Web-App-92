@@ -90,8 +90,8 @@ export class NewRequestProductComponent implements OnInit, OnDestroy {
   public selectedServiceItemUID: string;
 
   public categoryTreeControl = new FlatTreeControl<NewRequestCategoryNode>(
-    (leaf) => leaf.level,
-    (leaf) => leaf.entity.HasChildren.Column.GetValue()
+    (leaf) => leaf.level || 0,
+    (leaf) => leaf.entity?.HasChildren.Column.GetValue()
   );
   public apiControls: DynamicDataApiControls<NewRequestCategoryNode> = {
     setup: async () => {
@@ -192,20 +192,27 @@ export class NewRequestProductComponent implements OnInit, OnDestroy {
       root.children.push(...children);
       return children;
     },
+    abortSearch: () => {
+      this.orchestration.abortServiceCategoryCall();
+    },
     search: async (params: CollectionLoadParameters) => {
       const userParams = {
         UID_Person: this.orchestration.recipients
           ? MultiValue.FromString(this.orchestration.recipients.value).GetValues().join(',')
           : undefined,
       };
-      const parentKeyFilter = params.search?.length > 0 ? {} : { ParentKey: '' };
+      const parentKeyFilter = !!params.search?.length ? {} : { ParentKey: '' };
+      this.orchestration.abortServiceCategoryCall();
       const response = await this.categoryApi.get({ ...parentKeyFilter, ...params, ...userParams });
+      if (!response?.Data) {
+        return;
+      }
       const searchNodes = response.Data.map((datum) => {
         const node: NewRequestCategoryNode = {
           entity: datum,
           isSelected: false,
           level: 1,
-          isSearchResult: params.search?.length > 0,
+          isSearchResult: !!params.search?.length,
         };
         return node;
       });
