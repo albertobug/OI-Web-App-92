@@ -4,6 +4,17 @@
 
 ## Change log
 
+### August 12, 2024
+- 459770: Fixed an issue where the request parameter validation result was not working on first input.
+- 462048: Fixed an issue with delegation search caching.
+- 461659: Fixed an issue regarding delegation or ESet requests on the Request History page.
+- 460151: Fixed an issue with the QueryWhereClause evaluation during the value check on updated parameter.
+- 460511: Fixed an issue that causes the side navigation on New Request to show search results twice.
+- 461414: Fixed the scrollability of the Operation Support Portal's Process view 
+- 462785: Fixed an UI issue regarding the alignment for the column "User account is disabled" and its data.
+
+User Accounts: Title of column "User account is disabled" is aligned differently as its data.
+
 ### July 30, 2024
 
 The v92 branch has been updated with fixes for the following issues.
